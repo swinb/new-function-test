@@ -1,8 +1,8 @@
-package kr.codesquad.secondhand.oauth.repository;
+package kr.codesquad.secondhand.api.oauth.repository;
 
 import java.util.Map;
 
-import kr.codesquad.secondhand.oauth.domain.OAuthProvider;
+import kr.codesquad.secondhand.api.oauth.domain.OAuthProvider;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

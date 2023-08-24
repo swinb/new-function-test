@@ -1,4 +1,4 @@
-package kr.codesquad.secondhand.oauth.domain;
+package kr.codesquad.secondhand.api.oauth.domain;
 
 import java.util.HashMap;
 import java.util.Map;
