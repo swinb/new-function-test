@@ -1,5 +1,7 @@
 package kr.codesquad.secondhand.api.oauth.domain.dto;
 
+import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Builder;
@@ -23,5 +25,13 @@ public class OAuthTokenResponse {
 		this.accessToken = accessToken;
 		this.scope = scope;
 		this.tokenType = tokenType;
+	}
+
+	public static OAuthTokenResponse from(Map<String, String> tokenResponse){
+		return OAuthTokenResponse.builder()
+			.accessToken(tokenResponse.get("access_token"))
+			.tokenType(tokenResponse.get("token_type"))
+			.scope(tokenResponse.get("scope"))
+			.build();
 	}
 }

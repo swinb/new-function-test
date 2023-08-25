@@ -1,0 +1,10 @@
+oauth2:
+  client:
+    kakao:
+      client-id: bfea12117cfbf4ba08a81770fcb696a4
+      client-secret: rOAVLIiLrFyivOn0qEtWJStpKkvSB5Mz
+      redirect-uri: http://localhost:8080/api/members/sign-in/kakao
+  provider:
+    kakao:
+      token-uri: https://kauth.kakao.com/oauth/token
+      user-info-uri: https://kapi.kakao.com/v2/user/me

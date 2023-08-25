@@ -25,6 +25,18 @@ public class Member {
 	private String profileImgUrl;
 	private Timestamp createTime;
 
+	@Override
+	public String toString() {
+		return "Member{" +
+			"id=" + id +
+			", signInTypeId=" + signInTypeId +
+			", email='" + email + '\'' +
+			", nickname='" + nickname + '\'' +
+			", profileImgUrl='" + profileImgUrl + '\'' +
+			", createTime=" + createTime +
+			'}';
+	}
+
 	@Builder
 	public Member(Long id, int signInTypeId, String email, String nickname, String profileImgUrl,
 		Timestamp createTime) {

@@ -1,32 +1,8 @@
 spring:
   profiles:
     group:
-      stage: stageDB, jasypt
+      stage: stageDB, jasypt, oauth2
       prod:
       test:
     active: stage
----
-oauth:
-  user:
-    github:
-      client-id:
-      client-secret:
-      redirect-uri:
-    google:
-      client-id:
-      client-secret:
-      redirect-uri:
-    naver:
-      client-id:
-      client-secret:
-      redirect-uri:
-  provider:
-    github:
-      token-uri:
-      user-info-uri:
-    google:
-      token-uri:
-      user-info-uri:
-    naver:
-      token-uri:
-      user-info-uri:
+

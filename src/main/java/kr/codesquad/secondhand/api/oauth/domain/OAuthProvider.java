@@ -7,22 +7,22 @@ import lombok.Getter;
 public class OAuthProvider {
 	private final String clientId;
 	private final String clientSecret;
-	private final String redirectUrl;
-	private final String tokenUrl;
-	private final String userInfoUrl;
+	private final String redirectUri;
+	private final String tokenUri;
+	private final String userInfoUri;
 
 	public OAuthProvider(OAuthProperties.Client client, OAuthProperties.Provider provider) {
-		this(client.getClientId(), client.getClientSecret(), client.getRedirectUrl(), provider.getTokenUrl(),
-			provider.getUserInfoUrl());
+		this(client.getClientId(), client.getClientSecret(), client.getRedirectUri(), provider.getTokenUri(),
+			provider.getUserInfoUri());
 	}
 
 	@Builder
-	public OAuthProvider(String clientId, String clientSecret, String redirectUrl, String tokenUrl,
-		String userInfoUrl) {
+	public OAuthProvider(String clientId, String clientSecret, String redirectUri, String tokenUri,
+		String userInfoUri) {
 		this.clientId = clientId;
 		this.clientSecret = clientSecret;
-		this.redirectUrl = redirectUrl;
-		this.tokenUrl = tokenUrl;
-		this.userInfoUrl = userInfoUrl;
+		this.redirectUri = redirectUri;
+		this.tokenUri = tokenUri;
+		this.userInfoUri = userInfoUri;
 	}
 }
