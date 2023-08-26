@@ -23,8 +23,7 @@ public class MemberService {
 		OAuthProvider oAuthProvider = inMemoryProviderRepository.findByProviderName(provider);
 		OAuthTokenResponse oAuthTokenResponse = oAuthService.requestTokenFromProvider(oAuthProvider, authCode);
 		Member member = oAuthService.getMember(provider, oAuthProvider, oAuthTokenResponse);
-		System.out.println(member);
-
+		memberRepository.save(member);
 	}
 
 }
