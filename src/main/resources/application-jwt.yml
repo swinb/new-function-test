@@ -1,0 +1,4 @@
+jwt:
+  secret-key:
+  access-token-expiration-time:
+  refresh-token-expiration-time:

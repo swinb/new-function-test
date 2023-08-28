@@ -1,7 +1,7 @@
 spring:
   profiles:
     group:
-      stage: stageDB, jasypt, oauth2
+      stage: stageDB, jasypt, oauth2, jwt
       prod:
       test:
     active: stage
