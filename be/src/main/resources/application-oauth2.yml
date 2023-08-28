@@ -1,0 +1,17 @@
+oauth2:
+  client:
+    github:
+      client-id: 6a06ed6de71661881f50
+      client-secret: ENC(ggFMvA+mX/7TE+fk+wV9xtnLdslecc2nPSHdje7g7rdkn6FLUwhL5v/AqA9bWatNXe3faDH8EcU=)
+      redirect-uri: http://13.125.12.218:8080/api/members/sign-in/github
+    kakao:
+      client-id: bfea12117cfbf4ba08a81770fcb696a4
+      client-secret: ENC(BXk6vmKBJ4D2DuhF2FXaU6p4wmJcecJsW8g8EPQmCrr68BUF8iFTYVRH0wWJUmN9)
+      redirect-uri: http://13.125.12.218:8080/api/members/sign-in/kakao
+  provider:
+    github:
+      token-request-uri: https://github.com/login/oauth/access_token
+      user-info-request-uri: https://api.github.com/user
+    kakao:
+      token-request-uri: https://kauth.kakao.com/oauth/token
+      user-info-request-uri: https://kapi.kakao.com/v2/user/me
