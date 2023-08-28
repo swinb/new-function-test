@@ -5,3 +5,14 @@ spring:
       prod:
       test:
     active: stage
+
+# JPA Log
+logging:
+  level:
+    org:
+      hibernate:
+        sql: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
