@@ -2,6 +2,7 @@ package kr.codesquad.secondhand.oauth.service;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import kr.codesquad.secondhand.oauth.domain.OAuthProfile;
 import kr.codesquad.secondhand.oauth.domain.OAuthRegistration;
@@ -32,7 +33,9 @@ public class OAuthService {
         Map<String, Object> attributes = requestOauthAttributes(registration, tokenResponse);
 
         // TODO github의 경우, Private email을 받아오기 위한 메소드 추가 필요
-
+        if(providerName.equals("github")){
+            attributes.put("email", getGithubPrivateEmail(tokenResponse).get(0).get("email"));
+        }
         return OAuthProfile.of(providerName, attributes);
     }
 
@@ -76,5 +79,16 @@ public class OAuthService {
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {})
                 .block();
+    }
+
+    public List<Map<String, Object>> getGithubPrivateEmail(OAuthTokenResponse tokenResponse) {
+        return WebClient.create()
+            .get()
+            .uri("https://api.github.com/user/emails")
+            .headers(header -> header.setBearerAuth(tokenResponse.getAccessToken()))
+            .retrieve()
+            .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
+            })
+            .block();
     }
 }
