@@ -1,11 +1,17 @@
 package kr.codesquad.secondhand.member.domain;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,7 +28,6 @@ public class Member {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long signInTypeId;
     private String email;
     private String nickname;
     private String profileImgUrl;
@@ -30,9 +35,16 @@ public class Member {
     @CreatedDate
     private LocalDateTime createdTime;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "member")
+    private final List<MemberAddress> memberAddress = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sign_in_type_id")
+    private SignInType signInType;
+
     @Builder
-    public Member(Long signInTypeId, String email, String nickname, String profileImgUrl) {
-        this.signInTypeId = signInTypeId;
+    public Member(SignInType signInType, String email, String nickname, String profileImgUrl) {
+        this.signInType = signInType;
         this.email = email;
         this.nickname = nickname;
         this.profileImgUrl = profileImgUrl;
