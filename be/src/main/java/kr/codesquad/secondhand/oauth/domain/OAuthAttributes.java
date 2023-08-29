@@ -15,7 +15,7 @@ public enum OAuthAttributes {
         public OAuthProfile of(Map<String, Object> attributes) {
             return OAuthProfile.builder()
                     .email((String) attributes.get("email"))
-                    .name((String) attributes.get("name"))
+                    .name((String) attributes.get("login"))
                     .imageUrl((String) attributes.get("avatar_url"))
                     .build();
         }
